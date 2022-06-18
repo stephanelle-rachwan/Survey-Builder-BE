@@ -17,12 +17,12 @@ return new class extends Migration
             $table->id();
             $table->integer('survey_id');
             $table->longText('content');
-            $table->tinyInteger('radio')->default(0);
-            $table->tinyInteger('checkbox')->default(0);
-            $table->tinyInteger('text')->default(0);
-            $table->tinyInteger('email')->default(0);
-            $table->tinyInteger('linear_scale')->default(0);
-            $table->tinyInteger('dropdown')->default(0);
+            $table->tinyInteger('radio')->nullable();
+            $table->tinyInteger('checkbox')->nullable();
+            $table->tinyInteger('text')->nullable();
+            $table->tinyInteger('email')->nullable();
+            $table->tinyInteger('linear_scale')->nullable();
+            $table->tinyInteger('dropdown')->nullable();
             $table->timestamps();
         });
     }
