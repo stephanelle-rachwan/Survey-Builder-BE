@@ -27,5 +27,22 @@ class AdminController extends Controller
         ], 200);
     }
 
-    
+    public function addQuestions(Request $request)
+    {
+        $question = new Question;
+        $question->survey_id = $request->survey_id;
+        $question->content = $request->content;
+        $question->radio = $request->radio;
+        $question->checkbox = $request->checkbox;
+        $question->text = $request->text;
+        $question->email = $request->email;
+        $question->linear_scale = $request->linear_scale;
+        $question->dropdown = $request->dropdown;
+        $question->save();
+
+        return response()->json([
+            "status" => "Success",
+        ], 200);
+    }
+
 }
