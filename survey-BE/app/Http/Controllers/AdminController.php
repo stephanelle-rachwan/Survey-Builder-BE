@@ -52,5 +52,12 @@ class AdminController extends Controller
             "status" => "Success",
         ], 200);
     }
+    
+    public function notFound(){
+        return response()->json([
+            "status" => "Failure",
+            "message" => "Unauthorized"
+        ], 404);
+    }
 
 }

@@ -11,11 +11,6 @@ use App\Models\User;
 
 class UserController extends Controller
 {
-    //
-    // Route::get('/get-survey', [UserController::class, "getSurveys"]); done + tested
-    // Route::get('/get-questions', [UserController::class, "getQuestions"]); done + tested
-    // Route::get('/get-choices', [UserController::class, "getChoices"]); done + tested
-    // Route::post('/add-answers', [UserController::class, "addAnswers"]); 
 
     public function getSurveys(Request $request)
     {
