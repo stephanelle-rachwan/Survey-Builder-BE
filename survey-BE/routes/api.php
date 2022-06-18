@@ -11,3 +11,9 @@ Route::group(['middleware' => 'api'], function($router) {
     Route::post('/refresh', [JWTController::class, 'refresh']);
     Route::post('/profile', [JWTController::class, 'profile']);
 }); 
+
+Route::group(['prefix' => 'admin'], function(){
+    Route::post('/add-survey', [AdminController::class, "addSurveys"]); 
+    Route::post('/add-questions', [AdminController::class, "addQuestions"]); 
+    Route::post('/add-answers', [AdminController::class, "addAnswers"]); 
+});
