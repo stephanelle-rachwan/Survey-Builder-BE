@@ -15,6 +15,14 @@ return new class extends Migration
     {
         Schema::create('questions', function (Blueprint $table) {
             $table->id();
+            $table->integer('survey_id');
+            $table->longText('content');
+            $table->tinyInteger('radio');
+            $table->tinyInteger('checkbox');
+            $table->tinyInteger('text');
+            $table->tinyInteger('email');
+            $table->tinyInteger('linear_scale');
+            $table->tinyInteger('dropdown');
             $table->timestamps();
         });
     }
