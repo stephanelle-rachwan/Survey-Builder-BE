@@ -11,10 +11,6 @@ use App\Models\User;
 
 class AdminController extends Controller
 {
-    //
-    // Route::post('/add-survey', [AdminController::class, "addSurveys"]); 
-    // Route::post('/add-questions', [AdminController::class, "addQuestions"]); 
-    // Route::post('/add-choices', [AdminController::class, "addChoices"]); 
 
     public function addSurveys(Request $request)
     {
@@ -39,6 +35,18 @@ class AdminController extends Controller
         $question->linear_scale = $request->linear_scale;
         $question->dropdown = $request->dropdown;
         $question->save();
+
+        return response()->json([
+            "status" => "Success",
+        ], 200);
+    }
+
+    public function addChoices(Request $request)
+    {
+        $choice = new Choice;
+        $choice->question_id = $request->question_id;
+        $choice->value = $request->value;
+        $choice->save();
 
         return response()->json([
             "status" => "Success",
