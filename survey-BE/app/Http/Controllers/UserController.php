@@ -13,8 +13,8 @@ class UserController extends Controller
 {
     //
     // Route::get('/get-survey', [UserController::class, "getSurveys"]); done + tested
-    // Route::get('/get-questions', [UserController::class, "getQuestions"]); 
-    // Route::get('/get-choices', [UserController::class, "getChoices"]); 
+    // Route::get('/get-questions', [UserController::class, "getQuestions"]); done + tested
+    // Route::get('/get-choices', [UserController::class, "getChoices"]); done + tested
     // Route::post('/add-answers', [UserController::class, "addAnswers"]); 
 
     public function getSurveys(Request $request)
@@ -35,8 +35,8 @@ class UserController extends Controller
 
         // get questions by survey name
         $survey_name =$request->survey_name;
-        $survey_row = Survey::where('survey_name', $survey_name)->get();
-        $survey_id = $survey_row[0]['id'];
+        $question_row = Survey::where('survey_name', $survey_name)->get();
+        $survey_id = $question_row[0]['id'];
         $questions = Question::where('survey_id', $survey_id)->get();
 
         return response()->json([
@@ -45,6 +45,23 @@ class UserController extends Controller
         ], 200);
     }
 
-    
+    public function getChoices (Request $request)
+    {
+        // get choices by question id
+        // $question_id=$request->question_id;
+        // $choices = Choice::where('question_id', $question_id)->get();
+
+        // get choices by question content
+        $content =$request->content;
+        $question_row = Question::where('content', $content)->get();
+        $question_id = $question_row[0]['id'];
+        $choices = Choice::where('question_id', $question_id)->get();
+
+
+        return response()->json([
+            "status" => "success",
+            "choices" => $choices
+        ], 200);
+    }
 
 }
