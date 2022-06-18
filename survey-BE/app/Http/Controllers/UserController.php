@@ -64,4 +64,16 @@ class UserController extends Controller
         ], 200);
     }
 
+    public function addAnswers(Request $request)
+    {
+        $answer = new Answer;
+        $answer->question_id = $request->question_id;
+        $answer->value = $request->value;
+        $answer->save();
+
+        return response()->json([
+            "status" => "Success",
+        ], 200);
+    }
+
 }
