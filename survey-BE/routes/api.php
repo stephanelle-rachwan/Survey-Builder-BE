@@ -15,7 +15,7 @@ Route::group(['prefix' => 'v1'], function(){
             Route::post('/add-questions', [AdminController::class, "addQuestions"]); 
             Route::post('/add-choices', [AdminController::class, "addChoices"]); 
         });
-        Route::post('/login', [JWTController::class, 'login']);
+        Route::get('/login', [JWTController::class, 'login']);
         Route::post('/register', [JWTController::class, 'register']);
         Route::post('/logout', [JWTController::class, 'logout']);
         Route::post('/refresh', [JWTController::class, 'refresh']);
